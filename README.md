@@ -15,8 +15,4 @@ One-page portfolio built with Vite + React and plain CSS modules.
    ```bash
    npm run build
    ```
-
-## Notes
-- Place `Seifeldin_Saleh_Resume.pdf` in the `public/` directory to enable the download buttons.
-- Entry point: `src/main.jsx`; main layout and sections in `src/App.jsx`.
 # portfolio
