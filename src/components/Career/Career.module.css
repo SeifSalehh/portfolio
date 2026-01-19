@@ -1,0 +1,224 @@
+.career {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.timelineCard,
+.chartCard {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.timelineCard {
+  overflow: hidden;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 22px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+.timelineItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.item:hover,
+.item:focus-within {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: color-mix(in srgb, var(--color-accent) 25%, var(--color-border));
+}
+
+.dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  margin-left: 16px;
+  margin-top: 6px;
+  box-shadow: 0 0 0 6px rgba(77, 162, 255, 0.08);
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+.meta {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.detail {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chartHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chartEyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.chartSubtitle {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.breakdownMeta {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.groupLabel {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.stackList {
+  display: grid;
+  gap: 10px;
+}
+
+.stackRow {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.stackRow:hover,
+.stackRow:focus-within {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.32);
+}
+
+.rowTop {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 6px;
+}
+
+.rowLabel {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.barTrack {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.barFill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 75%, #a8d8ff 25%), color-mix(in srgb, var(--color-accent-2) 45%, var(--color-accent) 55%));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 6px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.stackRow:hover .barFill,
+.stackRow:focus-within .barFill {
+  opacity: 0.95;
+  transform: scaleX(1.01);
+}
+
+.usedIn {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdownGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .stackRow,
+  .barFill {
+    transition: none !important;
+  }
+}

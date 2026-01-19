@@ -1,0 +1,136 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 260px;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.32);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-border));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  transform: translateX(-6%);
+}
+
+.card:hover::after,
+.card:focus-within::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::after {
+    transition: none !important;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.32);
+    background: var(--color-surface);
+  }
+
+  .card:hover::after,
+  .card:focus-within::after {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 19px;
+}
+
+.text {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.card:hover .chip,
+.card:focus-within .chip {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  color: var(--color-text);
+}
+
+.badge {
+  background: rgba(255, 198, 109, 0.12);
+  color: #ffd88f;
+  border: 1px solid rgba(255, 198, 109, 0.3);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.card:hover .btnGhost,
+.card:focus-within .btnGhost {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.card:hover .btnPrimary,
+.card:focus-within .btnPrimary {
+  box-shadow: 0 16px 40px rgba(77, 162, 255, 0.32);
+}
+
+.meta {
+  color: var(--color-muted);
+  font-weight: 600;
+}

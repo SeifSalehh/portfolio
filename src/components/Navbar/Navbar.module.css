@@ -1,0 +1,223 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  justify-content: center;
+  padding: 8px 12px;
+}
+
+.navbar {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: color-mix(in srgb, var(--color-bg) 55%, rgba(255, 255, 255, 0.04));
+  border: 1px solid color-mix(in srgb, var(--color-border-strong) 60%, transparent);
+  border-radius: 999px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.headerScrolled {
+  background: transparent;
+}
+
+.headerScrolled .navbar {
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--color-bg) 70%, rgba(255, 255, 255, 0.06));
+  border: 1px solid color-mix(in srgb, var(--color-border-strong) 75%, transparent);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.36);
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link {
+  color: var(--color-text);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.25s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-accent);
+  background: rgba(77, 162, 255, 0.08);
+  transform: scale(1.04);
+  outline: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 5px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.active {
+  color: var(--color-accent);
+}
+
+.active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resumeBtn {
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid var(--color-border-strong);
+}
+
+.menuButton {
+  display: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.menuIcon {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+}
+
+.menuButton:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(77, 162, 255, 0.35);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.2s ease;
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  top: 6px;
+}
+
+.drawer {
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+}
+
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 24px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.drawerLink {
+  color: var(--color-text);
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.drawerLink:hover,
+.drawerLink:focus-visible,
+.drawerResume:hover,
+.drawerResume:focus-visible {
+  color: var(--color-accent);
+  outline: none;
+}
+
+.drawerResume {
+  color: var(--color-text);
+  font-weight: 700;
+  padding-top: 4px;
+}
+
+.drawerOpen {
+  display: block;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 12, 22, 0.25);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 4;
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 9px 11px;
+    width: calc(100% - 24px);
+  }
+
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .drawer {
+    display: block;
+    top: 64px;
+    transform: translateY(-100%);
+    transition: transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  .drawerOpen {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
