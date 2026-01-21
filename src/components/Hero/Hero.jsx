@@ -80,7 +80,13 @@ function Hero({ socials }) {
               </span>
             </span>
           </a>
-          <a className="btn btnGhost" href="/Seifeldin_Saleh_Resume.pdf" download>
+          <a
+            className="btn btnGhost"
+            href="/Seifeldin_Saleh_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
             <span className="btnContent">
               Download Resume
               <span className="btnIcon" aria-hidden="true">
