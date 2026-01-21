@@ -15,4 +15,3 @@ One-page portfolio built with Vite + React and plain CSS modules.
    ```bash
    npm run build
    ```
-# portfolio
