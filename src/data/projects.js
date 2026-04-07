@@ -1,6 +1,7 @@
 export const projects = [
   {
     id: 'kickcrew',
+    accent: '#16a34a',
     name: 'KickCrew',
     description: [
       'Full-stack web app for booking football pitches with authentication and admin approval.',
@@ -24,6 +25,7 @@ export const projects = [
   },
   {
     id: 'rag-chatbot',
+    accent: '#9333ea',
     name: 'RAG Chatbot',
     description: [
       'Collaborative RAG-based chatbot for answering questions from uploaded one-pagers.',
@@ -47,6 +49,7 @@ export const projects = [
   },
   {
     id: 'fittrack',
+    accent: '#ea580c',
     name: 'FitTrack',
     description: [
       'Mobile app focused on organizing trainer–client workflows in one place.',
@@ -70,6 +73,7 @@ export const projects = [
   },
   {
     id: 'ethfetch',
+    accent: '#0891b2',
     name: 'EthFetch',
     description: [
       'Backend tool for fetching and processing Ethereum transaction data from blockchain APIs.',

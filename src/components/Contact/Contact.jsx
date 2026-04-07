@@ -6,14 +6,15 @@ function Contact({ socials }) {
 
   return (
     <section id="contact" className={`section reveal ${styles.contact}`}>
-      <div className={styles.card}>
-        <div>
-          <p className="eyebrow">Contact</p>
-          <h2 className="sectionTitle">Let’s collaborate</h2>
-          <p className="sectionSubtitle">
-            Tell me about the product, the constraints, and the success criteria—let’s design the path together.
-          </p>
+      <div className={styles.inner}>
+        <div className={styles.badge}>
+          <span className={styles.dot} aria-hidden="true" />
+          Open to opportunities
         </div>
+        <h2 className={styles.heading}>Let's build something.</h2>
+        <p className={styles.sub}>
+          Tell me about the product, the constraints, and the success criteria — let's design the path together.
+        </p>
         <div className={styles.actions}>
           <a className="btn btnPrimary" href="mailto:seifeldin077@gmail.com">
             <span className="btnContent">

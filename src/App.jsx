@@ -13,6 +13,17 @@ import { socials } from './data/socials.js';
 function App() {
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (media.matches) return undefined;
+    const handleMove = (e) => {
+      document.documentElement.style.setProperty('--mx', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--my', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const sections = document.querySelectorAll('.reveal, .revealItem');
 
     if (media.matches) {

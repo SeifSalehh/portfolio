@@ -121,13 +121,13 @@ function Career() {
             <div>
               <p className={styles.groupLabel}>Languages</p>
               <div className={styles.stackList}>
-                {stacks.languages.map((item) => (
+                {stacks.languages.map((item, idx) => (
                   <div key={item.label} className={styles.stackRow}>
                     <div className={styles.rowTop}>
                       <span className={styles.rowLabel}>{item.label}</span>
                     </div>
                     <div className={styles.barTrack}>
-                      <span className={styles.barFill} style={{ width: `${item.footprint}%` }} />
+                      <span className={styles.barFill} style={{ width: `${item.footprint}%`, animationDelay: `${idx * 0.15}s` }} />
                     </div>
                     <p className={styles.usedIn}>Used in: {item.usedIn}</p>
                   </div>
@@ -137,13 +137,13 @@ function Career() {
             <div>
               <p className={styles.groupLabel}>Databases</p>
               <div className={styles.stackList}>
-                {stacks.databases.map((item) => (
+                {stacks.databases.map((item, idx) => (
                   <div key={item.label} className={styles.stackRow}>
                     <div className={styles.rowTop}>
                       <span className={styles.rowLabel}>{item.label}</span>
                     </div>
                     <div className={styles.barTrack}>
-                      <span className={styles.barFill} style={{ width: `${item.footprint}%` }} />
+                      <span className={styles.barFill} style={{ width: `${item.footprint}%`, animationDelay: `${idx * 0.15 + 0.3}s` }} />
                     </div>
                     <p className={styles.usedIn}>Used in: {item.usedIn}</p>
                   </div>
