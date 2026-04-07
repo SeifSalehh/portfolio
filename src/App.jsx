@@ -4,8 +4,10 @@ import Hero from './components/Hero/Hero.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Career from './components/Career/Career.jsx';
 import About from './components/About/About.jsx';
+import Skills from './components/Skills/Skills.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import { projects } from './data/projects.js';
+import { skills } from './data/skills.js';
 import { socials } from './data/socials.js';
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
         <Projects projects={projects} />
         <Career />
         <About />
+        <Skills skills={skills} />
         <Contact socials={socials} />
       </main>
     </div>
